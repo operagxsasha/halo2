@@ -45,7 +45,7 @@ impl<'de, F: PrimeField> de::Visitor<'de> for FWrapVisitor<F> {
         repr.as_mut().copy_from_slice(value);
         let v: Option<F> = F::from_repr(repr).into();
         v.map(|v| FWrap(v))
-            .ok_or(E::custom("invalid field repr: {:value?}"))
+            .ok_or(E::custom("invalid field repr"))
     }
 }
 
